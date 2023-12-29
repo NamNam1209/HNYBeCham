@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <audio id="myMusic" src="1.mp3" preload="auto" loop autoplay>
+      </audio>
   <meta charset="utf-8">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
+let music = document.getElementById("myMusic");
+music.volume = 0.2;
     function touchHandler(event)
 {
     var touches = event.changedTouches,
@@ -151,8 +155,7 @@ h3 {
     </div>
   </div>
 
-<body onload = "startTimer ()" style="background: white;
-    margin-bottom: 50px;">
+<body onload = "startTimer ()" style="background: white;">
 
   <div style="
               background-color: black;
@@ -180,8 +183,14 @@ h3 {
         ">
 
     </canvas>
+
   </div>
-  <div id="container" style="margin-top: 10px; background-color: black;   position: relative;
+  <div style="position:relative;">
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+    <p style="text-align: center; font-size: 18px;">Ai mà xinh dữ dị chài (灬♥ω♥灬)</p>
+    </div>
+  </div>
+  <div id="container" style="background-color: black;   position: relative;
   min-height: 100%;
   overflow: hidden;">
         <img alt="Avatar" style="max-height: 20%;max-width: 20%;position: absolute;" id="img1" src="1.png"/>
@@ -210,22 +219,14 @@ h3 {
         <img alt="Avatar" style="max-height: 20%;max-width: 20%;position: absolute;" id="img24" src="24.png"/>
         <img alt="Avatar" style="max-height: 20%;max-width: 20%;position: absolute;" id="img25" src="25.png"/>
   </div>
-  <center>
-    <h1 style="
-        color: black;
-        text-align: center;
-        
-        vertical-align: middle;
-        z-index: 1;">
-        Ai mà xinh dữ dị chài (灬♥ω♥灬)
-    </h1>
-</center>
+
 </body>
 <script>
 $(document).ready(function() {
-    for (let index = 1; index <= 25; index++) {
+    for (let index = 1; index <= 26; index++) {
         animateDiv($('#img' + index));
     }
+        $('#myMusic')[0].play();
 });
 
 function makeNewPosition($container) {
@@ -298,7 +299,7 @@ var canvas = document.getElementById( 'canvas' ),
 		limiterTotal = 5,
 		limiterTick = 0,
 		// this will time the auto launches of fireworks, one launch per 80 loop ticks
-		timerTotal = 80,
+		timerTotal = 30,
 		timerTick = 0,
 		mousedown = false,
 		// mouse x coordinate,
